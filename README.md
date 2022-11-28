@@ -2,8 +2,17 @@
 
 图片转base64，no import
 
+open the picture with 'rb'
+
+```
+>>> a=bytes2base64(bytes("hello",'utf-8'))
+>>> print(a)
+aGVsbG8==
+```
+
 ```python
-import BASE64
+
+from ciphers import BASE64
 
 with open("img.png", "rb") as f:
     a = f.read()
@@ -22,21 +31,37 @@ with open("img.png", "rb") as f:
 |投影  |   a>>b|
 
 
-```python
-from vector import Vector2D
+```
+实例化
+    >>> a = Vector2D(1, 2)
+    >>> b = Vector2D(2, 2)
 
-a = Vector2D(1, 2)
-b = Vector2D(2, 2)
-x = b
-c = Vector2D(2, 2)
-z = Vector2D(0, 0)
+    自反
+    >>> print(-a)
+    Vector2D<-1,-2>
 
-z.x = 1
-print(-a, a * b, a * 4, a * 2.2, a * 2, a * a)
+    坐标相乘
+    >>> print(a * b)
+    6
 
-qw = Vector2D(10, 2, name="A")
-print(qw.name)
+    坐标与数字相乘
+    >>> print(a * 4)
+    Vector2D<4,8>
 
-print(Vector2D.vcos(Vector2D(0, 1), Vector2D(0, 1)))
-print(a >> b)
+    与浮点数
+    >>> print(a * 2.2)
+    Vector2D<2.2,4.4>
+
+    命名
+    >>> qw = Vector2D(10, 2, name="Hello")
+    >>> print(qw.name)
+    Hello
+
+    对应向量cos()
+    >>> print(Vector2D.vcos(Vector2D(1, 0), Vector2D(0, 1)))
+    0.0
+
+    投影
+    >>> print(a >> b)
+    2.1213203435596424
 ```

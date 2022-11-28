@@ -5,7 +5,7 @@
 # @File    : BASE64.py
 # @Software: PyCharm
 
-def bytes2base64(by: bytes):
+def bytes2base64(by: bytes) -> str:
     data = ""
     result = ""
     coded = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -21,12 +21,18 @@ def bytes2base64(by: bytes):
     return result
 
 
+def test_bytes2base64():
+    """
+    Open the picture with 'rb'
+    with open("", "rb") as f:
+        a = f.read()
+    >>> a=bytes2base64(bytes("hello",'utf-8'))
+    >>> print(a)
+    aGVsbG8==
+    """
+
+
 if __name__ == '__main__':
-    import os
-    png = "img.png"
-    if os.path.exists(png):
-        with open(png, "rb") as f:
-            a = f.read()
-        print(bytes2base64(a))
-    else:
-        print("缺少 "+png)
+    import doctest
+
+    doctest.testmod(verbose=True)

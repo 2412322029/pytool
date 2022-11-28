@@ -93,20 +93,44 @@ class Vector2D:
         return __a / __b
 
 
+def test():
+    """
+    实例化
+    >>> a = Vector2D(1, 2)
+    >>> b = Vector2D(2, 2)
+
+    自反
+    >>> print(-a)
+    Vector2D<-1,-2>
+
+    坐标相乘
+    >>> print(a * b)
+    6
+
+    坐标与数字相乘
+    >>> print(a * 4)
+    Vector2D<4,8>
+
+    与浮点数
+    >>> print(a * 2.2)
+    Vector2D<2.2,4.4>
+
+    命名
+    >>> qw = Vector2D(10, 2, name="Hello")
+    >>> print(qw.name)
+    Hello
+
+    对应向量cos()
+    >>> print(Vector2D.vcos(Vector2D(1, 0), Vector2D(0, 1)))
+    0.0
+
+    投影
+    >>> print(a >> b)
+    2.1213203435596424
+    """
+
+
 if __name__ == '__main__':
-    print(Vector2D.__doc__)
+    import doctest
 
-    a = Vector2D(1, 2)
-    b = Vector2D(2, 2)
-    x = b
-    c = Vector2D(2, 2)
-    z = Vector2D(0, 0)
-
-    z.x = 1
-    print(-a, a * b, a * 4, a * 2.2, a * 2, a * a)
-
-    qw = Vector2D(10, 2, name="A")
-    print(qw.name)
-
-    print(Vector2D.vcos(Vector2D(0, 1), Vector2D(0, 1)))
-    print(a >> b)
+    doctest.testmod(verbose=True)
