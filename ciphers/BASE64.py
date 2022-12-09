@@ -26,9 +26,8 @@ def test_bytes2base64():
     Open the picture with 'rb'
     with open("", "rb") as f:
         a = f.read()
-    >>> a=bytes2base64(bytes("hello",'utf-8'))
-    >>> print(a)
-    aGVsbG8==
+    >>> bytes2base64(bytes("hello",'utf-8')) == "aGVsbG8=="
+    True
     """
 
 
@@ -36,3 +35,8 @@ if __name__ == '__main__':
     import doctest
 
     doctest.testmod(verbose=True)
+
+    # with open("../img.png", "rb") as f:
+    #     a = f.read()
+    # print(bytes2base64(a))
+
